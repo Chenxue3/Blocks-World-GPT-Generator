@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Forest>
+  <Goal name="G0" Goal-condition="on(x,y)">
+    <Plan name="P0" precondition="on(x,y)">
+      <Action name="A0" precondition="on(x,y)" recursion="NULL" post-consition="on(x,y)" />
+    </Plan>
+    <Plan name="P1" precondition="clear(x) &amp;&amp; clear(y) &amp;&amp; y!=table">
+      <Action name="A1" precondition="clear(x) &amp;&amp; clear(y) &amp;&amp; y!=table" recursion="move(x,y)" post-consition="on(x,y)" />
+    </Plan>
+    <Plan name="P2" precondition="on(z,x) &amp;&amp; clear(y)">
+      <Action name="A2" precondition="on(z,x) &amp;&amp; clear(y)" recursion="move(z,table)" post-consition="on(z, table)" />
+      <Action name="A3" precondition="on(z,x) &amp;&amp; clear(y)" recursion="move(x,y)" post-consition="on(x,y)" />
+    </Plan>
+    <Plan name="P3" precondition="on(z,y) &amp;&amp; clear(x)">
+      <Action name="A3" precondition="on(z,y) &amp;&amp; clear(x)" recursion="move(z,table)" post-consition="on(z, table)" />
+      <Action name="A4" precondition="on(z,y) &amp;&amp; clear(z)" recursion="move(x,y)" post-consition="on(x,y)" />
+    </Plan>
+    <Plan name="P4" precondition="clear(x) &amp;&amp; (y == table)">
+      <Action name="A4" precondition="clear(x) &amp;&amp; (y == table)" recursion="NULL" post-consition="on(x,y)" />
+    </Plan>
+  </Goal>
+</Forest>
